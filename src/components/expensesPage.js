@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios'
 
 class ExpensesPage extends Component{
     constructor(props){
@@ -19,16 +20,24 @@ class ExpensesPage extends Component{
     }
 
     onSubmit(event){
-        event.preventDefault()
+        // event.preventDefault()
+        const submittedData = {
+            date: this.state.date,
+            amount: this.state.amount,
+            reason: this.state.reason
+        }
+        axios.post('/api/submit', submittedData).then(res=>{
+            console.log(res)
+        })
     }
 
     render(){
-
+        console.log(this.state)
 
         return(
             <div >
                 <h1 className="display-4 text-center">Enter your expense</h1>
-                <form onSubmit={this.onSubmit.bind(this)} >
+                <form action="/history" onSubmit={this.onSubmit.bind(this)} >
                 <div className="form-group">
                         <label htmlFor="date">Date of expense</label>
                         <input value={this.state.date} onChange={this.inputChange} type="date" id="date" className="form-control" />

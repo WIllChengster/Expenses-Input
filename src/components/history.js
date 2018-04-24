@@ -1,7 +1,18 @@
 import React,{Component} from 'react';
-
+import axios from 'axios'
 
 class History extends Component{
+    constructor(props){
+        super(props)
+        this.state={
+            expenseData:{}
+        }
+    }
+
+    // componentWillMount(){
+    //     axios.get
+    // }
+
     render(){
         return(
             <div >
