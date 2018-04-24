@@ -26,7 +26,7 @@ class ExpensesPage extends Component{
 
 
         return(
-            <div className="jumbotron" >
+            <div >
                 <h1 className="display-4 text-center">Enter your expense</h1>
                 <form onSubmit={this.onSubmit.bind(this)} >
                 <div className="form-group">
