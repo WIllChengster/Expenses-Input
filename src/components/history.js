@@ -5,15 +5,44 @@ class History extends Component{
     constructor(props){
         super(props)
         this.state={
-            expenseData:{}
+            expenseData:[]
         }
     }
 
-    // componentWillMount(){
-    //     axios.get
+    componentDidMount(){
+        axios.get('/api/data').then(res=>{
+            console.log(res)
+            this.setState({
+                expenseData: res.data
+            })
+        })
+    }
+    // componentWillUpdate(){
+    //     axios.get('/api/data').then(res=>{
+    //         console.log(res)
+    //         this.setState({
+    //             expenseData: res.data
+    //         })
+    //     })
     // }
 
     render(){
+        console.log(this.state)
+        const expenseRow = this.state.expenseData.map((item, index) => {
+            console.log(item)
+
+                return(
+                    <tr key={index} >
+                        <th scope="head">{index+1}</th>
+                        <td>{item.date}</td>
+                        <td>{item.amount}</td>
+                        <td>{item.reason}</td>
+                    </tr>
+                )
+            
+
+        })
+
         return(
             <div >
                 <h1 className="display-4 text-center">Expense History</h1>
@@ -27,24 +56,7 @@ class History extends Component{
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="head">1</th>
-                            <td>11231</td>
-                            <td>12312321</td>
-                            <td>123123</td>
-                        </tr>
-                        <tr>
-                            <th scope="head">1</th>
-                            <td>11231</td>
-                            <td>12312321</td>
-                            <td>123123</td>
-                        </tr>
-                        <tr>
-                            <th scope="head">1</th>
-                            <td>11231</td>
-                            <td>12312321</td>
-                            <td>123123</td>
-                        </tr>
+                        {expenseRow}
                     </tbody>
                 </table>
                 
