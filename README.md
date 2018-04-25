@@ -1,4 +1,4 @@
-###Expense Input!
+# Expense Input!
 
 >To start, run "npm start" inside the main directory
 
