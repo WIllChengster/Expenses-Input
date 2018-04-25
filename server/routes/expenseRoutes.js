@@ -23,4 +23,12 @@ router.post('/submit', (req,res) => {
     }
 })
 
+router.get('/data', (req,res) => {
+    ExpenseModel.find().then( data=>{
+        console.log('SENDING EXPENSE DATA: ' + data)
+        res.send(data);
+
+    } )
+})
+
 module.exports = router
