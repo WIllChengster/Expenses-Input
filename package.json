@@ -13,9 +13,9 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "start": "npm run start --parallel dev:*",
+    "start": "npm-run-all --parallel dev:*",
     "dev:sever": "npm run dev --prefix server",
-    "dev:client":"node index.js",
+    "dev:client":"react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
