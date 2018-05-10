@@ -27,10 +27,7 @@ class History extends Component{
     // }
 
     render(){
-        console.log(this.state)
         const expenseRow = this.state.expenseData.map((item, index) => {
-            console.log(item)
-
                 return(
                     <tr key={index} >
                         <th scope="head">{index+1}</th>
